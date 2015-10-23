@@ -1,0 +1,97 @@
+# Last modified on Setp. 2, 2015 (Seong Heon Lee)
+# Format: [record type]|[field tag]|[marctag/indicators]|[subfields]|[label]|[column %]|[record display]|[append]
+
+b|t||-6789|Title||b|
+b|a||-6789|Author||b|
+b|p|260|-6789|Publisher||b|
+b|p||-6789|Imprint||b|
+b|e||-6789|Edition||b|
+
+# 490 Series
+b|s||-6789|Series||b|
+
+# 650 Subjects
+b|d||-6789|Subject||b|
+
+# 780 Continue
+b|x|780.2|-6789|Continues||b|
+b|x|780.5|-6789|Absorbed||b|
+b|x||-6789|Continues||b|
+
+# 785 Continued By
+b|z|785.2|-6789|Continued By||b|
+b|z|785.5|-6789|Absorbd By||b|
+b|z||-6789|Cont'd By||b|
+b|o|001|a|OCLC||b|
+
+
+# Display the holdings table and the accompanying links (including 856 and 962 links)
+# Bib_Display.html will use "H" tag to define token area <!--{recordinfo:!}--> and <!--{recordinfo:#}-->
+b|H|||||
+b|T|||||
+
+b|h||-6789|Lib Has||b|
+#b|r|310|-6789|Frequency||b|
+#b|r|315|-6789|Frequency||b|
+#b|r|350|-6789|||b|
+#b|r|362|-6789|Pub Date||b|
+#b|r||-6789|Collation||b|
+
+b|n|504|-6789|Bibliog.||b|
+b|n|505|-6789|Contents||b|
+b|n|506|-6789|Restrictions on Access||b|
+b|n|508|-6789|Production Credits||b|
+b|n|510|-6789|Contents||b|
+b|n|5111|-6789|Cast||b|
+b|n|520|-6789|Summary||b|
+b|n|524|-6789|Citation||b|
+b|n|540|-6789|Terms Governing Use||b|
+b|n|545|-6789|Biographical or Historical Data||b|
+b|n|546|-6789|Language||b|
+b|n||-6789|Note||b|
+
+b|b||-6789|Alt Author||b|
+b|u|24612|-6789|Distinctive Title||b|
+b|u|24614|-6789|Cover Title||b|
+b|u|24616|-6789|Caption Title||b|
+b|u|24617|-6789|Running Title||b|
+b|u|24618|-6789|Spine Title||b|
+b|u|24630|-6789|Portion Of Title||b|
+b|u|24631|-6789|Parallel Title||b|
+b|u|2463|-6789|Other Title Or Alt Title||b|
+b|u|130|-6789|Unif Title||b|
+b|u||-6789|Alt Title||b|
+
+b|y|[0-7]....|-6789|||b|
+b|y|8[0-4]...|-6789|||b|
+b|y|85[0-5]..|-6789|||b|
+b|y|856..|-6789|Econnect||b|
+b|y|85[7-9]..|-6789|||b|
+b|y|8[6-9]...|-6789|||b|
+b|y|9[0-9][0-9]..|-6789|||b|
+b|y||-6789|Marc||b|
+b|i|020|-6789|ISBN||b|
+b|i|022|-6789|ISSN||b|
+b|i|028|-6789|Music #||b|
+b|i||-6789|ISBN/ISSN||b|
+
+# Check-In Record
+c|i||a|Identity||b|&nbsp;
+c|C||&|||b|&nbsp;
+c|Q||||b|
+c|$||+|Location||b|
+c|h||-8x|Lib. Has||b|
+c|2||+|Latest Received||b|&nbsp;
+c|3||+|Latest Received||b|
+c|Q||||b|
+
+# Item Record
+i|1||||25|b|
+i|C||||0|b|&nbsp;
+i|v||||0|b|&nbsp;
+i|#||||30|b|
+i|Q||||b|
+i|%||||0|b|
+i|!||||27|b|
+
+

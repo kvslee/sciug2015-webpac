@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="description" content="SCIUG 2015 Conference, Civilized WebPac">
+	<meta name="keywords" content="SCIUG, 2015, Conference, WebPac, Civilized WebPac">
+	<meta name="author" content="Seong Heon Lee">	
+	<title>SCIUG 2015 WebPac</title>
+	<link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+
+	<script type="text/javascript" src="./javascripts/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+</head>
+<body>
+<p id="intro">This content is created for the presentation of 2015 SCIUG Conference. Some links below may not work if the access requires a network login. 
+You may contact Seong Heon Lee (selee at chapman.edu) if you have any question about the content. 
+</P>
+	<header>
+		<h1>"Civilized" WebPacs in SCIUG, October 21, 2015</h1>
+		<div style="float: left">
+			<img src="images/primitiveman.png" />
+		</div>
+	</header>
+
+	<h1>Topics to be covered: </h1>
+	<ul style="margin-left: 25px; float: left;">
+		<li>Basics of Website</li>
+		<li>CSS/Selectors/Bootstrap</li>
+		<li>JavaScript/jQuery/Ajax</li>
+		<li>WebPac Structure and Elements</li>
+		<li>Real Examples (CSS and JavaScript tricks)</li>
+		<li>Google Books API & Mandrill Email API</li>
+		<li>Other Libraries</li>
+	</ul>
+	<div class="clearBoth"></>
+	<article>
+		  <section id="s1" style="display: block;">
+		  	<h1>1. Why "civilized"?</h1>
+		  	<p></p>
+		  	<div><button type="button" class="btn btn-defulat clickNextSection">@2</button></div>
+		  	<hr>
+		  </section>
+
+		  <section id="s2">
+		  	<h1>2. How a website works?</h1>
+		  	<h2>Three Things of Website:</h2> 
+		  	<ul>
+		  		<li>HTML: defines document structure with HTML elements.</li> 
+		  		<li>CSS: defines views like colors, layout, width, etc.</li>
+		  		<li>JavaScript: defines actions like click events.</li>
+	  		</ul>
+		  	<img src="images/trinity.png" /> 
+		  	<h2>Tips</h2>
+		  	<ul>
+			  	<li>Use "View Page Source" to check css/javascript links in HTML</li>
+			  	<li>Use Browsers' Developer Tool</li>
+			  	<li>Check third-party developer tools (e.g. <a href="http://getfirebug.com/whatisfirebug" target="_blank">
+			  		Firebug </a> )</li>
+		    </ul>
+		  	<div><button type="button" class="btn btn-defulat clickNextSection">@3</button></div>
+		  	<hr>
+		  </section>
+
+		  <section id="s3" class="class1 class2">
+		  	<h2>HTML Terms:</h2>
+		  	<ul>
+		  		<li>Element: a block of codes from start tag to end tag </li>
+		  		<li>Attribute: provides additional information/characteristics about an element</li>
+		  		<li>id: a unique identifier of an element</li>
+		  		<li>class: a shared identifier for grouping elements <br />
+		  	</ul>
+		  	<img src="images/htmlterm.png" />
+		  	<h2>DOM (Document Object Model)</h2>
+		  	<ul>
+		  		<li>When a browser loads a page, it converts HTML elements to DOM Node tree.</li>
+		  		<li>DOM Nodes are HTML Element objects.</li>
+		  		<li>HTML Elements objects, which we can use when lively manipulating HTML elements on a browser.</li>
+		  	</ul>
+		  	<div class="demo">
+		  		<img src="images/domtree.png" />
+		  		<a href="./demo1.html" target="_blank">Demo</a>
+		  	</div>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@4</button></div>
+		  	<hr>
+		</section>
+
+		<section id="s4">
+		  	<h1>3. How does CSS make HTML pretty?</h1>
+		  	<h2>CSS Syntax</h2>
+		  	<ul>
+		  		<li>Choose a HTML Element object.</li>
+		  		<li>Declare property and value.</li>
+		  		<li>CSS controls the views of websites.</li>
+		  	</ul>
+		  	<img src="images/csssyntax.png" />
+
+		  	<h2>Selectors - Basic</h2>
+		  	<ul>
+		  		<li>Selectors: rules or patterns to select HTML Element objects</li>
+		  		<li>Select all elements by element tag name <pre> e.g. div</pre></li>
+		  		<li>Select the elements by id: <pre> e.g. #sciug</pre></li>
+		  		<li>Select all elements by class: <pre> e.g. .sciug</pre></li>
+		  	</ul>
+		  	<div id="pleaseChangeMe" class="demo">Please Change Me! (Select ID and use a Developer Tool).</div>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@5</button></div>
+		  	<hr>
+		</section>
+
+		<section id="s5">
+		  	<h2>Selectors - Relationship</h2>
+		  	<ul>
+		  		<li>HTML elements are nested (e.g. html > body > article > section).</li>
+		  		<li>Select all descenents: <pre> e.g. section p </pre></li> 
+		  		<li>Select direct childs only: <pre> e.g. section > p </pre> </li>
+		  		<li>Select the first childs only: <pre> e.g. h1:first-child</pre></li>
+		  		<li>Select the nth child only: <pre> e.g. p:nth-child(3)</pre></li>
+		  	</ul>
+		  	<div class="demo">
+		  		<h2>Question: how to select the grandchild paragraph?</h2>
+			  	<img src="images/selectors.png" /><br />
+		  		<a href="demo.html" target="_blank">Demo</a>
+		  	</div>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@6</button></div>
+		  	<hr>
+		</section>
+
+		<section id="s6">
+		  	<h2>Selectors - More</h2>
+	  		<ul>
+	  			<li><a href="http://www.w3schools.com/cssref/css_selectors.asp">w3Schools: CSS Selectors Reference</a></li>
+	  			<li>Google "CSS selectors" to find examples and solutions.</li>
+	  			<li>CSS Selectors is one of the most useful skills for a WebPac edit project. </li>
+	  			<li>CSS Selectors are also used in JavaScript/jQuery.</li>
+	  		</ul>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@7</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s7">
+		  	<h2>Three Ways of Plugging CSS to HTML</h2>
+		  	<ol>
+		  		<li>External: link tag in the the head element</li>
+		  		<li>Internal: style tag in the head element</li>
+		  		<li>Inline: style attribute in a HTML element (e.g. body, p, section, etc)</li>
+		  		<li>External stylesheet is most preferred and popular.</li>
+		  	</ol>
+	  		<img src="images/plugcss.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@8</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s8">
+	  		<h2>CSS Priority/Specificity Rules (VERY IMPORTANT!)</h2>
+	  		<ul>
+	  			<li>Important when handling multiples stylesheets.</li>
+	  			<li>Rule 1: External >> Internal >> Inline</li>
+	  			<li>Rule 2: The later loaded one overrides the earlier loaded.</li>
+	  			<li>Rule 3: The specific rules override the general ones.
+				<ul>
+					<li>tag elements >> .class >> #id  </li>
+					<li>closer relationship in nested HTML elements</li>
+				</ul>
+	  			</li>
+	  			<li>Use a Developer Tool to find overridden styles</li>
+		  		<li><a href="demo2.html" target="_blank">Demo</a></li>
+	  		</ul>
+	  		<div class="demo">
+	  			<h2>Why is the grandchild paragraph red, not blue?</h2>
+	  			<img src="images/override.png" />
+	  		</div>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@9</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s9">
+		  	<h2>Why Bootstrap?</h2>
+		  	<a href="http://getbootstrap.com/getting-started/" target="_blank"><img src="images/bootstrap.png" /></a>
+		  	<ul>
+		  		<li>Developed by Twitter and publicly released in August 2011.</li>
+		  		<li>The most popular CSS framework.</li>
+		  		<li>What is framework?</li>
+		  		<li>Why use framework?</li>
+		  		<ul>
+		  			<li>Use pre-defined styles for quick development.</li>
+		  			<li>Extensible for local customization.</li>
+		  			<li>Handle browser incompatibility.</li>
+		  			<li>Responsive and mobile-friendly design.</li>
+		  		</ul>
+		  	</ul>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@10</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s10">
+		  	<h1>4. How does JavaScript make HTML act?</h1>
+		  	<h2>JavaScript</h2>
+		  	<ul>
+		  		<li>Create "interactive" websites (e.g. Page Button on the right).</li>
+		  		<li>Form Validation: No emtpy error page returned!</li>
+		  		<li>Visualization effects with programatically controls.</li>
+		  		<li>Exchange data with a server with AJAX.</li>
+		  		<li>Create/run a HTTP web server with Node.js.</li>
+		  		<li>Use CSS selectors to easily traverse DOM objects (e.g. querySelector, querySelectorAll)</li> 
+		  	</ul>
+		  	<div class="demo">
+		  		<h2>What time is it now?</h2>
+		  		<p>Click the button to find the current time.<p>
+		  		<button type="button" class="btn btn-primary jsAct">Click</button>
+		  		<p id="jsAct"></p> 
+	  			<img src="images/jsAct.png" />
+	  		</div>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@11</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s11">
+		  	<h2>Why jQuery?</h2>
+		  	<img src="images/jquery.png" />
+		  	<ul>
+		  		<li>Library that helps to use JavaScript efficiently.</li>
+		  		<li>Selecting and manipulating elements, event handling, animation, Ajax.</li>
+		  		<li>Short code.</li>
+		  		<li>Overcome browser compatibility: Cross-Browser.</li>
+		  		<li>Extensible: plugins.</li>
+		  	</ul>
+	  		<img src="images/jqueryCode.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@12</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s12">
+		  	<h2>Ajax, Asynchronous Javascript and XML</h2>
+		  	<ul>
+		  		<li>A web development technique, not a lanuguage or a library</li>
+		  		<li>Interchange data with a server in JSON, XML, HTML, text.</li>
+		  		<li>Asychronous: Request a data update without reloading the entire page;<br />
+		  		this means that users can do other tasks waiting for the update.</li>
+
+		  		<li>Historically, developed by Miscrosoft to update web contents dynamically.<br />
+		  			In the early 2000's, adopted by Mozilla, Apple, and Google (e.g. Outlook Web, Gmail) </li>
+		  		<li>Core technology behind is XMLHttpRequest</li>
+		  		<li>Later in 2006, XMLHttpRequest standardized by W3C (World Wide Wieb Consoirtium)</li>
+		  	</ul>
+		  	<div class="demo">
+		  		<h2>Ajax Demo</h2>
+		  		<p>It's time to check my email (i.e. receiving data).<p>
+		  		<button type="button" class="btn btn-primary ajaxDemo">Open Email Client</button>
+		  		<p id="ajaxDemo"></p> 
+		  		<p>Let's me send an email (i.e. sending data)<p>
+		  		<form id="ajaxdemo" action="/email" role="form">
+		  			<div class="col-xs-7"><input type="text" id="from" class="form-control" placeholder="Your Name" name="From"></div>	
+				  	<div class="col-xs-10"><input type="text" id="subject" class="form-control" placeholder="Subject" name="Subject"></div>
+				  	<div class="clearBoth"></div> <!-- Clear the float -->
+			  		<div><button type="button" class="btn btn-primary ajaxDemo2">Send Out</button></div>
+		  		</form>		
+		  		<p id="ajaxDemo2"></p> 
+	  		</div>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@13</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s13">
+		  	<h2>Ajax in plain JavaScript</h2>
+	  		<img src="images/ajaxJavascript.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@14</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s14">
+		  	<h2>Ajax in jQuery</h2>
+	  		<img src="images/ajaxjquery.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@15</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s7">
+		  	<h1>5. Sierra WebPac: Its Structure and Elements</h1>
+		  	<h2>Main Page (mainmenu.html) ( <a data-toggle="modal" data-target="#webpac-mainpage">Image</a> |
+<a href="http://chapcat.chapman.edu/" target="_blank">link</a> )</h2>
+			<div id="webpac-mainpage" class="modal" role="dialog">
+	  			<div class="modal-dialog">
+				  <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">WebPac Main Page (mainmemu.html)</h4>
+				      </div>
+				      <div class="modal-body">
+					  		<img src="images/mainpage.png" />
+				      </div>
+				  </div>
+				</div>
+			</div>
+		  	<h2>Scoped Main Page (opacmenu_s2.html) ( <a data-toggle="modal" data-target="#webpac-scope-page">Image</a> |
+<a href="http://chapcat.chapman.edu/search~S2/" target="_blank">link</a> )</h2>
+			<div id="webpac-scope-page" class="modal" role="dialog">
+	  			<div class="modal-dialog">
+				  <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Law Library Main Page (opacmemu_s2.html)</h4>
+				      </div>
+				      <div class="modal-body">
+					  		<img src="images/scope-main.png" />
+				      </div>
+				  </div>
+				</div>
+			</div>
+		  	<h2>Search Result Page (briefcit_s2.html) ( <a data-toggle="modal" data-target="#webpac-search-result">Image</a> |
+<a href="http://chapcat.chapman.edu/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">link</a> )</h2>
+			<div id="webpac-search-result" class="modal" role="dialog">
+	  			<div class="modal-dialog">
+				  <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Search Result Page </h4>
+				      </div>
+				      <div class="modal-body">
+					  		<img src="images/search-result.png" />
+				      </div>
+				  </div>
+				</div>
+			</div>
+		  	<h2>Record Display Page (bib_record_s2.html) ( <a data-toggle="modal" data-target="#webpac-record-display">Image</a> |
+<a href="http://chapcat.chapman.edu/search~S2?/Xlaw+study&searchscope=2&SORT=D/Xlaw+study&searchscope=2&SORT=D&SUBKEY=law+study/1%2C2054%2C2054%2CB/frameset&FF=Xlaw+study&searchscope=2&SORT=D&4%2C4%2C" target="_blank">link</a> )</h2>
+			<div id="webpac-record-display" class="modal" role="dialog">
+	  			<div class="modal-dialog">
+				  <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Record Display Page (bib_record_s2.html) </h4>
+				      </div>
+				      <div class="modal-body">
+					  		<img src="images/record-display.png" />
+				      </div>
+				  </div>
+				</div>
+			</div>
+		  	<h2>Advanced Search Page (srchhelp_X_s2.html) ( <a data-toggle="modal" data-target="#webpac-advanced-search">Image</a> |
+<a href="http://chapcat.chapman.edu/search/X" target="_blank">link</a> )</h2>
+			<div id="webpac-advanced-search" class="modal" role="dialog">
+	  			<div class="modal-dialog">
+				  <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Advance Search (srchhelp_X_s2.html) </h4>
+				      </div>
+				      <div class="modal-body">
+					  		<img src="images/advanced-search.png" />
+				      </div>
+				  </div>
+				</div>
+			</div>
+			<br />
+			<h2>Find:</h2>
+			<ul>
+				<li>Webforms are editable (manimenu, opacmenu, briefcit, bib_record, srchelp_X).</li>
+				<li>Some sections of search result page is not customizable.</li>
+				<li>Tokens are inserted into webforms.</li>
+				<li>Both toplogo and botlogo tokens are webforms.
+			</ul>
+			<h2>Tokens:</h2>
+		  	<ul>
+		  		<li>A token contains a block of HTML code, mostly with data.</li>
+		  		<li>The html code inside tokens are not customizable: programtically generated.</li>
+		  		<li>A few flexible exceptions:
+		  		<ul>
+		  			<li>Webform token: toplogo, toplogo_loggedin, botlogo, etc</li>
+		  			<li>Web Options</li>
+		  			<li>Record data token</li>
+		  		</ul>
+		  		</li>	
+		  		<li>Some tokens allow record fields customizable. <br />
+		  			<ul>
+		  				<li>e.g. recordinfo:ape, fieldspec:Vbt, linkfieldspec:Vbp </li>
+		  				<li>Important: Need to define record fields first in <a href="webpub_s2.def" target="_blank">webpub.def file</a>.</li>
+		  				<li>webpub.def: Record Display Definition file to define tags, order, and labels.</li>
+		  			</ul>
+	  			</li>
+		  		<li>Token must take an entire line and left-aligned in a web form.</li>	
+		  	</ul>
+		  	<div class="demo">
+	  			<img src="images/token.png" />
+	  		</div>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@16</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s16">
+	  		<h2>Web Options:</h2>
+	  		<ul>
+	  			<li>Controllers that define the looks and functions of WebPac. </li>
+	  			<li>Accessible from Web Options function in SDA.</li>
+	  			<li>Read Seirra Dcoumentation > <a href="http://csdirect.iii.com/sierrahelp/Default.htm#sril/sril_alpha_wwwoption_list.html%3FTocPath%3DSierra%2520Reference|Configuration%2520Files%2520and%2520Tables|Web%2520Options|_____1" target="_blank">Web Options</a>
+				<ul>
+					<li>Lots of web options: not easy to find a right option.</li>
+					<li>Technical descriptions and definitions: not intuitive to undertand.</li>
+					<li>You may still need a call(s) to the Innovative.</li>
+				</ul>
+	  			</li>
+	  			<li>Not always usable because of scope issue.</li>
+	  			<ul>
+	  				<li>An option itself cannot be scoped.</li>
+	  				<li>Libraries' local situation: an option is shared.</li>	
+	  			</ul>
+	  			<li>My opinion: the options that control the views may be better excluded <br />
+	  				and they may be customizable inside web forms or stylesheet. <ili>
+                    
+	  		</ul>
+	  		<img src="images/weboption.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@17</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s17">
+		  	<h2>Editing Process</h2>
+		  	<ul>
+		  		<li>Make a plan from user experiences.</li>
+		  		<li>Find where your edit target is located.</li>
+		  		<li>Find a relevant webform and associated tokens.</li>
+		  		<li>Check whether it is customizable in web forms and record data tokens.</li>
+		  		<li>Check whether it is customizable in Web Options. <br />
+		  		    (Read Sierra Documentation or call the Innovative.) </li>
+		  		<li>Check if it is customizable only for a specific scope.</li>
+		  		<li>Write CSS and JavaScript to manipuate HTML DOM elements. </li>
+		  		<li>Use WebPac staging host: Port 2082.</li>
+		  	</ul>
+	  		<img src="images/primitiveman.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@18</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s18">
+		  	<h1>6. Real Examples</h1>
+		  	<h2>Example 1: toplogo and navigation section</h2>
+		  	<ul>
+		  		<li>Do we need a logo image or can make it better?</li>
+		  		<li>Are the links (New Search and navigation links) actually used?</li>
+		  		<li>Are navigation links easy to maintain?</li>
+		  		<li>Duplications in library website.</li>
+		  		<li>Really search history?</li>
+		  		<li>Is More Searches necessary?</li>
+		  		<li>Doesn't it take too much the prime space?</li>
+		  	</ul>
+		  	<h2>Plans</h2>
+		  	<ul>
+		  		<li>Focus on the core feature of WebPac.</li>
+		  		<li>Remove or hide unused features.</li>
+		  		<li>Maintain consistant layout and views.</li>
+		  		<li>Edit a web form to remove navigation row (toplogo_s2)</li>
+		  		<li>Use CSS "display:none" to hide Search History.<br />
+		  			<pre>.navigationRow select {display: none;}</pre>
+		  		</li>
+		  		<li><a href="http://chapcat.chapman.edu/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">Before</a> | <a href = "http://chapcat.chapman.edu:2082/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">After</a> </li>
+
+	  		</ul>
+	  		<img src="images/toplogo.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@19</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s19">
+		  	<h2>Example 2: Search Box Area</h2>
+		  	<ul>
+		  		<li>The search box area is so cluttered.</li>
+		  		<li>Why does it look so?</li>
+		  		<li>Can buttons be rearranged?</li>
+		  		<li>The target area is not customizable: programmatically generated.</li>
+		  	</ul>
+		  	<h2>Plans</h2>
+		  	<ul>
+		  		<li>Increase the size of components (search boxes, font, pager)</li>
+		  		<li>Use Bootstrap to style search boxes</li>
+		  		<li>Give larger line spaces with padding</li>
+		  		<li>Change italic to normal</li>
+		  		<li>Provide a divider between search box and search record display.</li>
+		  		<li>Override existing styles (e.g. Limit search) <br />
+		  			<pre>.availLimMessage {font-style: normal;}</pre></li>
+		  		<li><a href="http://chapcat.chapman.edu/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">Before</a> | <a href = "http://chapcat.chapman.edu:2082/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">After</a> </li>
+		  	</ul>
+		  	<img src="images/sr-box.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@20</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s20">
+		  	<h2>Example 3: Search Result - Record Entry</h2>
+		  	<ul>
+		  		<li>Looks cluttered.</li>
+		  		<li>Low readability!</li>
+		  		<li>Contents are aligned too much to the left side.</li>
+		  		<li>Redundant record fields (author, year).</li>
+		  		<li>Rephrase "Website" to "Access Online" (Web Options).</li>
+		  		<li>Can Relevance Ranking be removed?</li>
+		  		<li>Hide an ugly line in Internet Resource entry</li>
+		  	</ul>
+		  	<h2>Plans</h2>
+		  	<ul>
+		  		<li>Create and use briefcit_s2.html.</li>
+		  		<li>Declutter with appropate spaces.</li>
+		  		<li>Hide Relance Ranking (Inspect with Developer Tool).</li>
+		  		<li>Align contents to the center with CSS overide. 
+		  		    <pre>(i.e. .pageContent {clear: both; margin: auto; width: 80%;}) </pre> </li>
+		  		<li>Use the web option, ICON_856LINK, to change the name of the link (customizable for a scope).</li>   
+		  		<li>Remove tokens (i.e. fieldspec:Vba and {year}). </li>
+		  		<li><a href="http://chapcat.chapman.edu/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">Before</a> | <a href = "http://chapcat.chapman.edu:2082/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">After</a> </li>		  		
+		  	</ul>
+		  	<img src="images/sr-record.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@21</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s21">
+		  	<h2>Example 4: Search Result - Google Books API </h2>
+		  	<ul>
+		  		<li>LibraryThing's book jacket service does not have good coverage of law materials (about 10%).</li>
+		  		<li>Leatherby and Law Library share the web option, BIBIMAGE, which is not customizable to a scope.</li>
+		  		<li>ISBN(i) is only the usuable match tag without WebBridge subscription (Innovative's Link Resolver). </li>
+		  		<li>Indecisive to pay for a third-party commercial service (e.g. Syndetics).</li>
+		  	</ul>
+		  	<h2>Plans</h2>
+		  	<ul>
+		  		<li>Implement Google Books API.</li>
+		  		<li>Use Ajax w/JSONP (crossing domain boundaries).</li>
+		  		<li>jQuery provides a convenient tool. </li>
+		  		<li>Preparation: Populate hidden OCLC numbers. <br />
+		  		    <ul>
+		  		    	<li>Define OCLC field in webpub.def file.</li>
+		  		    	<li>Add the token {fieldspec:Vbo} in breifcit.html (e.g. div.briefcitDetailMain).</li>
+		  		    	<li>Hide the number with the line css <br />
+		  		    		<pre>style="display:none;"</pre></li>
+		  		    </ul> 
+		  		</li>
+		  		<li>Step 1: Collect all hidden OCLC numbers (50 items).</li>
+		  		<li>Step 2: Request data to Google Books with Ajax. <a href="https://developers.google.com/books/docs/dynamic-links" target="_blank">Google Books API (Dynamic Links)</a></li>
+		  		<li>Step 3: Paste responsed data on the browser.</li>
+		  		<li><a href="http://chapcat.chapman.edu/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">Before</a> | <a href = "http://chapcat.chapman.edu:2082/search/?searchtype=X&SORT=D&searcharg=law+study&searchscope=2" target="_blank">After</a> </li>		  		
+		  	</ul>
+		  	<img src="images/googleBook.png" />
+			<div><button type="button" class="btn btn-defulat clickNextSection">@22</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s22">
+		  	<h2>Example 5: Record Display </h2>
+		  	<ul>
+		  		<li>Crowded view of search box area with buttons.</li>
+		  		<li>Too much information in the page!</li>
+		  		<li>Rearrange record fields.</li>
+		  		<ul>
+		  			<li>Move Series(490), Subjects(6XX), Continues(780), Continued By(785) to the main view.</li>
+		  			<li>Suppress Collations (336, 337, 338)</li>
+		  		</ul>
+		  		<li>Rephrase the text of 856 Link 
+		  			<ul>
+		  				<li>The web option, LINK856TEXT, is shared with Leatherby.</li>
+		  				<li>The option cannot be scoped.</li>
+		  				<li></li>
+		  			</ul>
+		  		<li>Include a book jacket.</li>
+		  	</ul>
+		  	<img src="images/rd-book-before.png" />
+		  	<h2>Plans</h2>
+		  	<ul>
+		  		<li>Declutter the search box area (font size, padding, Bootstrap grid).</li>
+		  		<li>Create a tab menu with Availability and Details (Bootstrap).</li>
+		  		<li>Display title, author, publisher, imprint, edition, series, subjects, continues/'ed in the Main view.</li>
+		  		<li>Display check-in records and item location inside Availability tab.</li>
+		  		<li>Display all others inside Details tab.</li>
+		  		<li>Use Google Books API for book Jacket.</li>
+		  		<li>Use CSS and JavaScript trick to rephrase the 856 link text.</li>
+		  		<li>Add a service link block on the right.</li>
+		  		<li>Add "Send Call Number" service (use Mandrill Email API).</li>
+		  		<li>
+				  	<a data-toggle="modal" data-target="#rd-book-after">Like this</a> 
+					<div id="rd-book-after" class="modal" role="dialog">
+			  			<div class="modal-dialog">
+						  <div class="modal-content">
+						      <div class="modal-body">
+							  		<img src="images/rd-book-after.png" />
+						      </div>
+						  </div>
+						</div>
+					</div>
+		  		</li>		  		
+		  		<li>Demo:
+				  	<ul>
+				  		<li>
+						  	Book ( <a href="http://chapcat.chapman.edu/search~S2?/Xlaw+study&searchscope=2&SORT=D/Xlaw+study&searchscope=2&SORT=D&SUBKEY=law+study/1%2C2054%2C2054%2CB/frameset&FF=Xlaw+study&searchscope=2&SORT=D&5%2C5%2C" target="_blank">Before</a> |
+							<a href="http://chapcat.chapman.edu:2082/search~S2?/Xlaw+study&searchscope=2&SORT=D/Xlaw+study&searchscope=2&SORT=D&SUBKEY=law+study/1%2C2054%2C2054%2CB/frameset&FF=Xlaw+study&searchscope=2&SORT=D&5%2C5%2C" target="_blank">After</a> ) 
+				  		</li>
+				  		<li>
+					  	Serials ( <a href="http://chapcat.chapman.edu/search~S2?/Xamerican+law&searchscope=2&SORT=DZ/Xamerican+law&searchscope=2&SORT=DZ&extended=0&SUBKEY=american+law/1%2C7118%2C7118%2CB/frameset&FF=Xamerican+law&searchscope=2&SORT=DZ&12%2C12%2C" target="_blank">Before</a> |
+							<a href="http://chapcat.chapman.edu:2082/search~S2?/Xamerican+law&searchscope=2&SORT=DZ/Xamerican+law&searchscope=2&SORT=DZ&extended=0&SUBKEY=american+law/1%2C7118%2C7118%2CB/frameset&FF=Xamerican+law&searchscope=2&SORT=DZ&12%2C12%2C" target="_blank">After</a> ) 				  			
+				  		</li>
+				  	</ul>		  			
+		  		</li>
+		  	</ul>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@23</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s23">
+		  	<h2>Example 6: Record Display - Codes </h2>
+		  	<ul>
+		  		<li>Rephrase the 856 link text. After the page is loaded, select the target element.<br/>
+		  					  	<img src="images/text856.png" />
+		  		</li>
+			</ul>
+
+			<ul>
+		  		<li>Implement "Send Call Number": Use Mandrill Email API <br />
+	  			<img src="images/mandrill.png" />
+		  		</li>
+		  	</ul>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@24</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s24">
+		  	<h2>Example 7: Advanced Search</h2>
+		  	<ul>
+		  		<li>Layout looks not good. Right space is on sleep.</li>
+		  		<li>The drop down lists are distractive?</li>
+		  		<li>Search Tips is not tidy.</li>
+		  	</ul>
+		  	<img src="images/advanced-search2.png" />
+		  	<h2>Plans</h2>
+		  	<ul>
+		  		<li>Use Bootstrap grid to make the layout, which is responsive.</li>
+		  		<li>Change multiple dropdown lists to one line dropdown. <br />
+		  		    A problem occured that multiple items could not be selectable.<br>
+		  		    Utilize Bootstrap multiselect plugin.</li>
+		  		<li><a href="http://chapcat.chapman.edu/search~S2/X" target="_blank">Before</a> | <a href = "http://chapcat.chapman.edu:2082/search~S2/X" target="_blank">After</a> </li>
+		  	</ul>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@25</button></div>
+		  	<hr>
+		  </section>
+		  <section id="s25">
+		  	<h1>Summary:</h1>
+		  	<h2>Client-side web technologies</h2>
+		  	<img src="images/html2web.png" />
+		  	<ul>
+		  		<li>Understand where changes can be made: webforms, tokens, web options.</li>
+		  		<li>Web Options - Not the end of story.</li>
+		  		<li>Manipulation of HTML DOM objects.</li> 
+		  		<li>CSS Selectors are very useful both in CSS and JavaScrpit.</li>
+		  		<li>Use a Developer Tool to inspect CSS.</li>
+		  		<li>Bootstrap and jQuery help fast development.</li>
+		  		<li>Consider using libraries and APIs to add more features (e.g. Google Books, Mandrill Email, jQuery UI, etc).</li>
+		  		<li>Small changes make big differences.</li>
+		  	</ul>
+			<div><button type="button" class="btn btn-defulat clickNextSection">@26</button></div>
+		  	<hr>
+		  </section>
+		  <section>
+		  	<h1>Thank you.</h1>
+		  	<img src="images/handshake.png" />
+		  </section>
+		  <section>
+		  	<h1>References</h1>
+		  	I give credits to the following resources that provided me with samples and ideas.
+			<ul>
+			<li><a href="http://www.w3schools.com" target="_blank">W3School</a>, particularly CSS and JavaScript.</li>
+			<li><a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank">How Browsers Works</a>, by Tali Garsiel and Paul Irish.</li>
+			<li><a href="http://library.ohio-state.edu/" target="_blank">Ohio State University Library Catalog</a>, regarding Google BOOK API.</li>  
+		  </section>
+	</article>
+</body>
+</html>
